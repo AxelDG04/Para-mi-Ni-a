@@ -1,0 +1,344 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --bg: #100b18;
+  --bg2: #1c1025;
+  --pink: #f6a7c8;
+  --rose: #d86b9b;
+  --cream: #fff4f7;
+  --muted: #d9c5d0;
+  --gold: #e9c98b;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at 50% 0%, #3b1b43 0, transparent 38%),
+    linear-gradient(180deg, var(--bg) 0%, #160d20 45%, #0d0912 100%);
+  color: var(--cream);
+  font-family: "Quicksand", sans-serif;
+  overflow-x: hidden;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  opacity: .18;
+  background-image:
+    radial-gradient(circle at 15% 20%, #fff 0 1px, transparent 2px),
+    radial-gradient(circle at 80% 32%, #fff 0 1px, transparent 2px),
+    radial-gradient(circle at 35% 72%, #fff 0 1px, transparent 2px),
+    radial-gradient(circle at 90% 80%, #fff 0 1px, transparent 2px);
+  background-size: 160px 180px, 220px 250px, 190px 230px, 260px 210px;
+  z-index: 0;
+}
+
+main, footer {
+  position: relative;
+  z-index: 1;
+}
+
+section {
+  width: min(100%, 720px);
+  margin: 0 auto;
+  padding: 76px 24px;
+}
+
+.hero {
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding-top: 60px;
+  position: relative;
+}
+
+.moon {
+  width: 118px;
+  height: 118px;
+  border-radius: 50%;
+  background: #fff1c9;
+  box-shadow: 0 0 55px rgba(255, 224, 163, .35);
+  margin-bottom: 34px;
+  position: relative;
+}
+
+.moon::after {
+  content: "";
+  position: absolute;
+  width: 112px;
+  height: 112px;
+  border-radius: 50%;
+  background: #1a1021;
+  top: -12px;
+  left: 25px;
+}
+
+.eyebrow, .small-title {
+  color: var(--pink);
+  text-transform: uppercase;
+  letter-spacing: .22em;
+  font-size: .72rem;
+  font-weight: 700;
+}
+
+.hero h1 {
+  font-family: Cinzel, serif;
+  font-size: clamp(2.6rem, 12vw, 5rem);
+  line-height: 1.05;
+  margin: 12px 0 20px;
+  text-shadow: 0 0 30px rgba(246,167,200,.25);
+}
+
+.subtitle {
+  max-width: 560px;
+  color: var(--muted);
+  line-height: 1.8;
+  font-size: 1rem;
+}
+
+.start-btn, .song-btn {
+  margin-top: 30px;
+  padding: 14px 22px;
+  border: 1px solid rgba(246,167,200,.55);
+  border-radius: 999px;
+  background: rgba(246,167,200,.1);
+  color: var(--cream);
+  text-decoration: none;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+  transition: .25s ease;
+  backdrop-filter: blur(8px);
+}
+
+.start-btn:hover, .song-btn:hover {
+  transform: translateY(-2px);
+  background: rgba(246,167,200,.2);
+}
+
+.scroll-hint {
+  position: absolute;
+  bottom: 22px;
+  color: #a9909d;
+  font-size: .75rem;
+  letter-spacing: .12em;
+}
+
+.message {
+  text-align: center;
+}
+
+.katana-line {
+  display: block;
+  width: 70px;
+  height: 2px;
+  margin: 0 auto 28px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+}
+
+h2 {
+  font-family: Cinzel, serif;
+  font-size: clamp(1.8rem, 7vw, 2.8rem);
+  line-height: 1.25;
+  margin: 12px 0 22px;
+}
+
+.message p:not(.small-title),
+.anime-card p,
+.song p,
+.final p {
+  color: var(--muted);
+  line-height: 1.9;
+  font-size: .98rem;
+}
+
+.message p + p {
+  margin-top: 18px;
+}
+
+.heart, .final-heart {
+  color: var(--pink);
+  font-size: 2rem;
+  margin-top: 30px;
+  animation: pulse 1.8s infinite;
+}
+
+.cards {
+  display: grid;
+  gap: 16px;
+  margin-top: 30px;
+}
+
+.anime-card {
+  padding: 28px 24px;
+  border: 1px solid rgba(255,255,255,.09);
+  border-radius: 24px;
+  background: rgba(255,255,255,.045);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.anime-card::before {
+  content: "";
+  position: absolute;
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  filter: blur(45px);
+  opacity: .28;
+  top: -55px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.yamada::before { background: #f39ac0; }
+.kimetsu::before { background: #79a9c9; }
+
+.symbol {
+  font-size: 2rem;
+  margin-bottom: 12px;
+  color: var(--pink);
+}
+
+.anime-card h3 {
+  font-family: Cinzel, serif;
+  margin-bottom: 10px;
+  font-size: 1.35rem;
+}
+
+.reason-list {
+  margin-top: 30px;
+  display: grid;
+  gap: 12px;
+}
+
+.reason-list div {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 17px;
+  border-radius: 17px;
+  background: rgba(255,255,255,.035);
+}
+
+.reason-list span {
+  color: var(--gold);
+  font-size: .72rem;
+  letter-spacing: .12em;
+  padding-top: 3px;
+}
+
+.reason-list p {
+  color: var(--muted);
+  line-height: 1.6;
+  font-size: .92rem;
+}
+
+.song {
+  text-align: center;
+}
+
+.vinyl {
+  width: 145px;
+  height: 145px;
+  border-radius: 50%;
+  margin: 0 auto 30px;
+  background: repeating-radial-gradient(circle, #19151e 0 7px, #29222e 8px 9px);
+  box-shadow: 0 12px 35px rgba(0,0,0,.4);
+  display: grid;
+  place-items: center;
+  animation: spin 10s linear infinite;
+}
+
+.vinyl-center {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: var(--rose);
+  color: white;
+  font-size: 1.2rem;
+}
+
+.final {
+  min-height: 90svh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+}
+
+.final-glow {
+  position: absolute;
+  width: 240px;
+  height: 240px;
+  border-radius: 50%;
+  background: rgba(216,107,155,.18);
+  filter: blur(55px);
+  z-index: -1;
+}
+
+.final h2 {
+  font-size: clamp(2.4rem, 10vw, 4rem);
+  margin-top: 14px;
+}
+
+.signature {
+  margin-top: 38px;
+  color: #bca6b2 !important;
+  line-height: 1.7 !important;
+}
+
+.signature strong {
+  color: var(--cream);
+}
+
+footer {
+  text-align: center;
+  padding: 22px;
+  color: #806d79;
+  font-size: .72rem;
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity .8s ease, transform .8s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@keyframes pulse {
+  0%,100% { transform: scale(1); }
+  50% { transform: scale(1.16); }
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+@media (min-width: 650px) {
+  .cards {
+    grid-template-columns: 1fr 1fr;
+  }
+}
